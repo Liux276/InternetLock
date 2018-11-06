@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "stc_net.h": "c",
+        "common.h": "c"
+    }
+}

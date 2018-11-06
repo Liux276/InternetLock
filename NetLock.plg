@@ -1,0 +1,220 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\OneDrive\OneDrive - mail2.sysu.edu.cn\嵌入式软件开发\InternetLock\NetLock.uvproj
+Project File Date:  11/04/2018
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(54): warning C280: 'brt': unreferenced local variable
+STC_NET.H(141): warning C280: 'mode': unreferenced local variable
+STC_NET.H(146): warning C280: 'name': unreferenced local variable
+STC_NET.H(146): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SETTIMER2BAUDRAYE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=465
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(54): warning C280: 'brt': unreferenced local variable
+STC_NET.H(141): warning C280: 'mode': unreferenced local variable
+STC_NET.H(146): warning C280: 'name': unreferenced local variable
+STC_NET.H(146): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SETTIMER2BAUDRAYE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=450
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(54): warning C280: 'brt': unreferenced local variable
+STC_NET.H(141): warning C280: 'mode': unreferenced local variable
+STC_NET.H(146): warning C280: 'name': unreferenced local variable
+STC_NET.H(146): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SETTIMER2BAUDRAYE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=505
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(54): warning C280: 'brt': unreferenced local variable
+STC_NET.H(141): warning C280: 'mode': unreferenced local variable
+STC_NET.H(146): warning C280: 'name': unreferenced local variable
+STC_NET.H(146): warning C280: 'password': unreferenced local variable
+TESTMAIN.C(55): warning C206: 'elay_ms': missing function-prototype
+TESTMAIN.C(55): error C267: 'elay_ms': requires ANSI-style prototype
+Target not created
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(54): warning C280: 'brt': unreferenced local variable
+STC_NET.H(141): warning C280: 'mode': unreferenced local variable
+STC_NET.H(146): warning C280: 'name': unreferenced local variable
+STC_NET.H(146): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SETTIMER2BAUDRAYE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=515
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 9 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(33): warning C280: 'brt': unreferenced local variable
+STC_NET.H(120): warning C280: 'mode': unreferenced local variable
+STC_NET.H(125): warning C280: 'name': unreferenced local variable
+STC_NET.H(125): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=382
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(33): warning C280: 'brt': unreferenced local variable
+STC_NET.H(120): warning C280: 'mode': unreferenced local variable
+STC_NET.H(125): warning C280: 'name': unreferenced local variable
+STC_NET.H(125): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=394
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=394
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(33): warning C280: 'brt': unreferenced local variable
+STC_NET.H(120): warning C280: 'mode': unreferenced local variable
+STC_NET.H(125): warning C280: 'name': unreferenced local variable
+STC_NET.H(125): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=445
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(35): warning C280: 'brt': unreferenced local variable
+STC_NET.H(122): warning C280: 'mode': unreferenced local variable
+STC_NET.H(127): warning C280: 'name': unreferenced local variable
+STC_NET.H(127): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=429
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(35): warning C280: 'brt': unreferenced local variable
+STC_NET.H(124): warning C280: 'mode': unreferenced local variable
+STC_NET.H(129): warning C280: 'name': unreferenced local variable
+STC_NET.H(129): warning C280: 'password': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=431
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 8 Warning(s).
+Build target 'Target 1'
+compiling TestMain.c...
+STC_NET.H(33): warning C280: 'brt': unreferenced local variable
+STC_NET.H(118): warning C280: 'mode': unreferenced local variable
+STC_NET.H(123): warning C280: 'name': unreferenced local variable
+STC_NET.H(123): warning C280: 'password': unreferenced local variable
+TESTMAIN.C(30): warning C209: '_UART1_config': too few actual parameters
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+Program Size: data=51.1 xdata=0 code=421
+creating hex file from "NetLock"...
+"NetLock" - 0 Error(s), 9 Warning(s).

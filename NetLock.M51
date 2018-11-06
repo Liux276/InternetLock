@@ -1,0 +1,341 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        11/06/2018  23:49:15  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE STARTUP.obj, TestMain.obj TO NetLock RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  TestMain.obj (TESTMAIN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+
+
+LINK MAP OF MODULE:  NetLock (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0006H     UNIT         ?DT?_ATWIFI?TESTMAIN
+            DATA    000EH     0002H     UNIT         ?DT?TESTMAIN
+            DATA    0010H     0001H     UNIT         ?DT?_ATMODE?TESTMAIN
+            DATA    0011H     0001H     UNIT         _DATA_GROUP_
+                    0012H     000EH                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?TESTMAIN
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0020H     UNIT         ?ID?TESTMAIN
+            IDATA   0041H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0020H                  *** GAP ***
+            CODE    0023H     0003H     ABSOLUTE     
+                    0026H     07DAH                  *** GAP ***
+            CODE    0800H     0042H     UNIT         ?PR?MAIN?TESTMAIN
+            CODE    0842H     003AH     UNIT         ?PR?_BUFFCMP?TESTMAIN
+            CODE    087CH     0036H     UNIT         ?CO?TESTMAIN
+            CODE    08B2H     0030H     UNIT         ?PR?_DELAY_MS?TESTMAIN
+            CODE    08E2H     002FH     UNIT         ?PR?UART1_INT?TESTMAIN
+            CODE    0911H     002AH     UNIT         ?PR?_UART1_CONFIG?TESTMAIN
+            CODE    093BH     0019H     UNIT         ?C?LIB_CODE
+            CODE    0954H     0016H     UNIT         ?PR?_PRINTSTRING1?TESTMAIN
+            CODE    096AH     0011H     UNIT         ?PR?_ATWIFI?TESTMAIN
+            CODE    097BH     000DH     UNIT         ?PR?_ATMODE?TESTMAIN
+            CODE    0988H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0994H     000BH     UNIT         ?PR?ATCONNECT?TESTMAIN
+
+
+
+OVERLAY MAP OF MODULE:   NetLock (?C_STARTUP)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/06/2018  23:49:15  PAGE 2
+
+
+  +--> ?PR?MAIN?TESTMAIN
+
+?PR?MAIN?TESTMAIN                  -----    -----
+  +--> ?PR?_UART1_CONFIG?TESTMAIN
+  +--> ?PR?_DELAY_MS?TESTMAIN
+  +--> ?CO?TESTMAIN
+  +--> ?PR?_PRINTSTRING1?TESTMAIN
+
+?PR?_UART1_CONFIG?TESTMAIN         0011H    0001H
+
+
+
+SYMBOL TABLE OF MODULE:  NetLock (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0988H         SEGMENT       ?C_C51STARTUP
+  I:0041H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:098BH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0988H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0988H         LINE#         133
+  C:098AH         LINE#         134
+  C:098BH         LINE#         135
+  C:098CH         LINE#         136
+  C:098EH         LINE#         185
+  C:0991H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        TESTMAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0093H         PUBLIC        P0M1
+  D:0092H         PUBLIC        P1M0
+  D:0096H         PUBLIC        P2M0
+  D:0091H         PUBLIC        P1M1
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/06/2018  23:49:15  PAGE 3
+
+
+  C:08ADH         PUBLIC        esp_at
+  D:0080H         PUBLIC        P0
+  D:00B2H         PUBLIC        P3M0
+  D:0095H         PUBLIC        P2M1
+  D:0090H         PUBLIC        P1
+  D:00B4H         PUBLIC        P4M0
+  D:00B1H         PUBLIC        P3M1
+  D:00A0H         PUBLIC        P2
+  D:00CAH         PUBLIC        P5M0
+  D:00B3H         PUBLIC        P4M1
+  D:00B0H         PUBLIC        P3
+  D:00CCH         PUBLIC        P6M0
+  D:00C9H         PUBLIC        P5M1
+  D:00C0H         PUBLIC        P4
+  D:00E2H         PUBLIC        P7M0
+  D:00CBH         PUBLIC        P6M1
+  D:00C8H         PUBLIC        P5
+  D:00E1H         PUBLIC        P7M1
+  B:0020H.0       PUBLIC        B_TX1_Busy
+  B:00A8H.7       PUBLIC        EA
+  D:00A2H         PUBLIC        P_SW1
+  B:00A8H.4       PUBLIC        ES
+  I:0021H         PUBLIC        RX1_Buffer
+  B:0098H.0       PUBLIC        RI
+  C:08E2H         PUBLIC        UART1_int
+  C:097BH         PUBLIC        _ATMode
+  B:0098H.1       PUBLIC        TI
+  C:0800H         PUBLIC        main
+  C:096AH         PUBLIC        _ATWifi
+  D:0099H         PUBLIC        SBUF
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  B:0090H.6       PUBLIC        P16
+  B:00C0H.6       PUBLIC        P46
+  B:00C0H.7       PUBLIC        P47
+  C:0954H         PUBLIC        _PrintString1
+  D:008EH         PUBLIC        AUXR
+  C:0911H         PUBLIC        _UART1_config
+  B:00A8H.3       PUBLIC        ET1
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  C:08D2H         PUBLIC        _delay_ms
+  B:0088H.6       PUBLIC        TR1
+  D:000EH         PUBLIC        RX1_Cnt
+  C:0994H         PUBLIC        ATConnect
+  D:000FH         PUBLIC        TX1_Cnt
+  B:0098H.4       PUBLIC        REN
+  C:0842H         PUBLIC        _BuffCMP
+  D:0094H         PUBLIC        P0M0
+  -------         PROC          _PRINTSTRING1
+  D:0001H         SYMBOL        puts
+  C:0954H         LINE#         15
+  C:0954H         LINE#         16
+  C:0954H         LINE#         17
+  C:0959H         LINE#         18
+  C:0959H         LINE#         19
+  C:095BH         LINE#         20
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/06/2018  23:49:15  PAGE 4
+
+
+  C:095DH         LINE#         21
+  C:0960H         LINE#         22
+  C:0969H         LINE#         23
+  -------         ENDPROC       _PRINTSTRING1
+  -------         PROC          _UART1_CONFIG
+  D:0011H         SYMBOL        brt
+  C:0911H         LINE#         33
+  C:0913H         LINE#         34
+  C:0913H         LINE#         37
+  C:0916H         LINE#         38
+  C:0919H         LINE#         39
+  C:091CH         LINE#         40
+  C:091FH         LINE#         41
+  C:0922H         LINE#         42
+  C:0925H         LINE#         43
+  C:0927H         LINE#         44
+  C:0929H         LINE#         47
+  C:092BH         LINE#         48
+  C:092DH         LINE#         49
+  C:0930H         LINE#         50
+  C:0933H         LINE#         53
+  C:0935H         LINE#         54
+  C:0938H         LINE#         55
+  C:093AH         LINE#         56
+  -------         ENDPROC       _UART1_CONFIG
+  -------         PROC          UART1_INT
+  C:08E2H         LINE#         66
+  C:08EBH         LINE#         68
+  C:08EEH         LINE#         69
+  C:08EEH         LINE#         70
+  C:08F0H         LINE#         71
+  C:08F7H         LINE#         72
+  C:0903H         LINE#         73
+  C:0903H         LINE#         75
+  C:0906H         LINE#         76
+  C:0906H         LINE#         77
+  C:0908H         LINE#         78
+  C:090AH         LINE#         79
+  C:090AH         LINE#         80
+  -------         ENDPROC       UART1_INT
+  -------         PROC          L?0032
+  -------         ENDPROC       L?0032
+  -------         PROC          _DELAY_MS
+  D:0007H         SYMBOL        ms
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:08D2H         LINE#         88
+  C:08D2H         LINE#         89
+  C:08D2H         LINE#         91
+  C:08D2H         LINE#         92
+  C:08D6H         LINE#         93
+  C:08DFH         LINE#         94
+  C:08E1H         LINE#         95
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          _BUFFCMP
+  D:0001H         SYMBOL        cmp
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/06/2018  23:49:15  PAGE 5
+
+
+  -------         DO            
+  D:0007H         SYMBOL        i
+  -------         ENDDO         
+  C:0842H         LINE#         101
+  C:0842H         LINE#         103
+  C:0850H         LINE#         104
+  C:085FH         LINE#         105
+  C:0862H         LINE#         106
+  C:0864H         LINE#         107
+  C:0864H         LINE#         108
+  C:0870H         LINE#         109
+  C:087AH         LINE#         110
+  C:087BH         LINE#         111
+  -------         ENDPROC       _BUFFCMP
+  -------         PROC          ATCONNECT
+  C:0994H         LINE#         113
+  C:0994H         LINE#         114
+  C:099DH         LINE#         115
+  C:099EH         LINE#         116
+  -------         ENDPROC       ATCONNECT
+  -------         PROC          _ATMODE
+  D:0010H         SYMBOL        mode
+  C:097BH         LINE#         118
+  C:097DH         LINE#         119
+  C:0986H         LINE#         120
+  C:0987H         LINE#         121
+  -------         ENDPROC       _ATMODE
+  -------         PROC          _ATWIFI
+  D:0008H         SYMBOL        name
+  D:000BH         SYMBOL        password
+  C:096AH         LINE#         123
+  C:0970H         LINE#         124
+  C:0979H         LINE#         125
+  C:097AH         LINE#         126
+  -------         ENDPROC       _ATWIFI
+  -------         PROC          MAIN
+  C:0800H         LINE#         19
+  C:0800H         LINE#         20
+  C:0800H         LINE#         21
+  C:0805H         LINE#         22
+  C:0809H         LINE#         23
+  C:080DH         LINE#         24
+  C:0811H         LINE#         25
+  C:0815H         LINE#         26
+  C:0819H         LINE#         27
+  C:081DH         LINE#         28
+  C:0821H         LINE#         30
+  C:0824H         LINE#         31
+  C:0826H         LINE#         32
+  C:0828H         LINE#         33
+  C:082AH         LINE#         34
+  C:082CH         LINE#         76
+  C:082CH         LINE#         77
+  C:082CH         LINE#         78
+  C:082CH         LINE#         79
+  C:082CH         LINE#         80
+  C:082CH         LINE#         81
+BL51 BANKED LINKER/LOCATER V6.22                                                      11/06/2018  23:49:15  PAGE 6
+
+
+  C:082CH         LINE#         82
+  C:082CH         LINE#         83
+  C:082FH         LINE#         84
+  C:0834H         LINE#         85
+  C:0834H         LINE#         86
+  C:0834H         LINE#         87
+  C:0834H         LINE#         88
+  C:0834H         LINE#         89
+  C:0834H         LINE#         90
+  C:0834H         LINE#         91
+  C:0837H         LINE#         92
+  C:0840H         LINE#         93
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TESTMAIN
+
+  -------         MODULE        ?C?CLDPTR
+  C:093BH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_BUFFCMP?TESTMAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ATCONNECT?TESTMAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATMODE?TESTMAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_ATWIFI?TESTMAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 018CH BYTE (19%) *
+******************************************************************************
+
+Program Size: data=51.1 xdata=0 code=421
+LINK/LOCATE RUN COMPLETE.  4 WARNING(S),  0 ERROR(S)
