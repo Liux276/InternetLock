@@ -1,4 +1,0 @@
-"STARTUP.obj",
-"TestMain.obj" 
-TO "NetLock" 
-RAMSIZE(256) 
