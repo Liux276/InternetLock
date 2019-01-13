@@ -32,26 +32,31 @@ void main(void)
     P16 = 1;
     P47 = 1;
     P46 = 1;
-    while(1){
-        delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-		delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-		delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-		delay_ms(250);
-        delay_ms(250);
-        delay_ms(250);
-        PrintString1(esp_at);
-    }
-    // while(!RX1_process){
+    // while(1){
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+	// 	delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+	// 	delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+	// 	delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     PrintString1(esp_at);
+    // }
+    // while(!BuffCMP("OK")){
     //     PrintString1("AT\r\n");  //SUART1发送握手连接指令，返回"OK"
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
+    //     delay_ms(250);
     //     delay_ms(250);
     // }
     // P16 = 0;
@@ -68,29 +73,20 @@ void main(void)
     // while(1){
     //     P47 = 1;
     //     PrintString1("AT+CWMODE=1\r\n"); //设置ESP8266的工作模式1 Station，返回"OK"或者"no change"
-    //     if(!RX1_process)   //收到数据
-    //     {
-    //         if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
-    //             P47 = 0;
-    //             break;
-    //         }
-    //         RX1_process = 1;
+    //     if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
+    //         P47 = 0;
+    //         break;
     //     }
-    //     // P47 = 0;
     // }
     // while(1){
     //     P46 = 0;
     //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
     //     if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
     //     delay_ms(1000);
-    //     if(!RX1_process)   //收到数据
-    //     {
-    //         if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
-    //             P46 = 0;
-    //             break;
-    //         } 
-    //         RX1_process = 1;
-    //     }
+    //     if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
+    //         P46 = 0;
+    //         break;
+    //     } 
     //     P46 = 1;
     // }
    

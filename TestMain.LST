@@ -1,9 +1,9 @@
-C51 COMPILER V9.01   TESTMAIN                                                              11/06/2018 23:49:15 PAGE 1   
+C51 COMPILER V9.01   TESTMAIN                                                              11/27/2018 17:32:11 PAGE 1   
 
 
 C51 COMPILER V9.01, COMPILATION OF MODULE TESTMAIN
 OBJECT MODULE PLACED IN TestMain.OBJ
-COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE TestMain.c BROWSE DEBUG OBJECTEXTEND
+COMPILER INVOKED BY: C:\Coding\KEIL\C51\BIN\C51.EXE TestMain.c BROWSE DEBUG OBJECTEXTEND
 
 line level    source
 
@@ -46,133 +46,88 @@ line level    source
   32   1          P16 = 1;
   33   1          P47 = 1;
   34   1          P46 = 1;
-  35   1              // delay_ms(250);
-  36   1              // delay_ms(250);
-  37   1              // delay_ms(250);
-  38   1              // delay_ms(250);
-  39   1              // delay_ms(250);
-  40   1              // delay_ms(250);
-  41   1              // delay_ms(250);
-  42   1              // delay_ms(250);
-  43   1              // delay_ms(250);
-  44   1              // delay_ms(250);
-  45   1              // delay_ms(250);
-  46   1              // delay_ms(250);
-  47   1          // delay_ms(250);
-  48   1              // delay_ms(250);
-  49   1              // delay_ms(250);
-  50   1              // delay_ms(250);
-C51 COMPILER V9.01   TESTMAIN                                                              11/06/2018 23:49:15 PAGE 2   
+  35   1          // while(1){
+  36   1          //     delay_ms(250);
+  37   1          //     delay_ms(250);
+  38   1          //     delay_ms(250);
+  39   1          //     delay_ms(250);
+  40   1              //      delay_ms(250);
+  41   1          //     delay_ms(250);
+  42   1          //     delay_ms(250);
+  43   1          //     delay_ms(250);
+  44   1              //      delay_ms(250);
+  45   1          //     delay_ms(250);
+  46   1          //     delay_ms(250);
+  47   1          //     delay_ms(250);
+  48   1              //      delay_ms(250);
+  49   1          //     delay_ms(250);
+  50   1          //     delay_ms(250);
+C51 COMPILER V9.01   TESTMAIN                                                              11/27/2018 17:32:11 PAGE 2   
 
-  51   1              // delay_ms(250);
-  52   1              // delay_ms(250);
-  53   1              // delay_ms(250);
-  54   1              // delay_ms(250);
-  55   1              // delay_ms(250);
-  56   1              // delay_ms(250);
-  57   1              // delay_ms(250);
-  58   1              // delay_ms(250);
-  59   1          // PrintString1("AT\r\n");
-  60   1          // P16 = 0;
-  61   1              // delay_ms(250);
-  62   1              // delay_ms(250);
-  63   1          
-  64   1              // delay_ms(250);
-  65   1              // delay_ms(250);
-  66   1          // PrintString1("AT+CWMODE=1\r\n");
-  67   1          // P47=0;
-  68   1              // delay_ms(250);
-  69   1              // delay_ms(250);
-  70   1              // delay_ms(250);
-  71   1              // delay_ms(250);
-  72   1              // delay_ms(250);
-  73   1              // delay_ms(250);
-  74   1          // PrintString1("AT+CWJAP=\"lxxx\",\"liuxiao123\"\r\n");
-  75   1          // P46=0;
-  76   1          while(1){
-  77   2              delay_ms(250);
-  78   2              delay_ms(250);
-  79   2              delay_ms(250);
-  80   2              delay_ms(250);
-  81   2                      delay_ms(250);
-  82   2              delay_ms(250);
-  83   2              delay_ms(250);
-  84   2              delay_ms(250);
-  85   2                      delay_ms(250);
-  86   2              delay_ms(250);
-  87   2              delay_ms(250);
-  88   2              delay_ms(250);
-  89   2                      delay_ms(250);
-  90   2              delay_ms(250);
-  91   2              delay_ms(250);
-  92   2              PrintString1(esp_at);
-  93   2          }
-  94   1          // while(!RX1_process){
-  95   1          //     PrintString1("AT\r\n");  //SUART1发送握手连接指令，返回"OK"
-  96   1          //     delay_ms(250);
-  97   1          // }
-  98   1          // P16 = 0;
-  99   1          // while(!BuffCMP("OK")&&!BuffCMP("no change")){
- 100   1          //     PrintString1("AT+CWMODE=1\r\n"); //设置ESP8266的工作模式1 Station，返回"OK"或者"no change"
- 101   1          //     delay_ms(5000);
+  51   1          //     PrintString1(esp_at);
+  52   1          // }
+  53   1          // while(!BuffCMP("OK")){
+  54   1          //     PrintString1("AT\r\n");  //SUART1发送握手连接指令，返回"OK"
+  55   1          //     delay_ms(250);
+  56   1          //     delay_ms(250);
+  57   1          //     delay_ms(250);
+  58   1          //     delay_ms(250);
+  59   1          //     delay_ms(250);
+  60   1          //     delay_ms(250);
+  61   1          // }
+  62   1          // P16 = 0;
+  63   1          // while(!BuffCMP("OK")&&!BuffCMP("no change")){
+  64   1          //     PrintString1("AT+CWMODE=1\r\n"); //设置ESP8266的工作模式1 Station，返回"OK"或者"no change"
+  65   1          //     delay_ms(5000);
+  66   1          // }
+  67   1          // P47 = 0;
+  68   1          // while(!BuffCMP("OK")){
+  69   1          //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
+  70   1          //     delay_ms(7000);
+  71   1          // }
+  72   1          // P46 = 0;
+  73   1          // while(1){
+  74   1          //     P47 = 1;
+  75   1          //     PrintString1("AT+CWMODE=1\r\n"); //设置ESP8266的工作模式1 Station，返回"OK"或者"no change"
+  76   1          //     if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
+  77   1          //         P47 = 0;
+  78   1          //         break;
+  79   1          //     }
+  80   1          // }
+  81   1          // while(1){
+  82   1          //     P46 = 0;
+  83   1          //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
+  84   1          //     if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
+  85   1          //     delay_ms(1000);
+  86   1          //     if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
+  87   1          //         P46 = 0;
+  88   1          //         break;
+  89   1          //     } 
+  90   1          //     P46 = 1;
+  91   1          // }
+  92   1         
+  93   1      
+  94   1          // while (1)
+  95   1          // {
+  96   1          //     if((TX1_Cnt != RX1_Cnt) && (!B_TX1_Busy))   //收到数据, 发送空闲
+  97   1          //     {
+  98   1          //         SBUF = RX1_Buffer[TX1_Cnt];     //把收到的数据远样返回
+  99   1          //         B_TX1_Busy = 1;
+ 100   1          //         if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
+ 101   1          //     }
  102   1          // }
- 103   1          // P47 = 0;
- 104   1          // while(!BuffCMP("OK")){
- 105   1          //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
- 106   1          //     delay_ms(7000);
- 107   1          // }
- 108   1          // P46 = 0;
- 109   1          // while(1){
- 110   1          //     P47 = 1;
- 111   1          //     PrintString1("AT+CWMODE=1\r\n"); //设置ESP8266的工作模式1 Station，返回"OK"或者"no change"
- 112   1          //     if(!RX1_process)   //收到数据
-C51 COMPILER V9.01   TESTMAIN                                                              11/06/2018 23:49:15 PAGE 3   
-
- 113   1          //     {
- 114   1          //         if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
- 115   1          //             P47 = 0;
- 116   1          //             break;
- 117   1          //         }
- 118   1          //         RX1_process = 1;
- 119   1          //     }
- 120   1          //     // P47 = 0;
- 121   1          // }
- 122   1          // while(1){
- 123   1          //     P46 = 0;
- 124   1          //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
- 125   1          //     if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
- 126   1          //     delay_ms(1000);
- 127   1          //     if(!RX1_process)   //收到数据
- 128   1          //     {
- 129   1          //         if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
- 130   1          //             P46 = 0;
- 131   1          //             break;
- 132   1          //         } 
- 133   1          //         RX1_process = 1;
- 134   1          //     }
- 135   1          //     P46 = 1;
- 136   1          // }
- 137   1         
- 138   1      
- 139   1          // while (1)
- 140   1          // {
- 141   1          //     if((TX1_Cnt != RX1_Cnt) && (!B_TX1_Busy))   //收到数据, 发送空闲
- 142   1          //     {
- 143   1          //         SBUF = RX1_Buffer[TX1_Cnt];     //把收到的数据远样返回
- 144   1          //         B_TX1_Busy = 1;
- 145   1          //         if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
- 146   1          //     }
- 147   1          // }
- 148   1      }
+ 103   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    324    ----
+   CODE SIZE        =    271    ----
    CONSTANT SIZE    =     54    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
    DATA SIZE        =      2       8
    IDATA SIZE       =     32    ----
+C51 COMPILER V9.01   TESTMAIN                                                              11/27/2018 17:32:11 PAGE 3   
+
    BIT SIZE         =      1    ----
 END OF MODULE INFORMATION.
 
