@@ -1,126 +1,195 @@
 #ifndef __STC_NET_H__
 #define __STC_NET_H__
 #include "Common.h"
-void UART1_config();   // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
-void PrintString1(u8 *); //·¢ËÍÊý¾Ýµ½µ¥Æ¬»ú´®
+void UART1_config();     // é€‰æ‹©æ³¢ç‰¹çŽ‡, 2: ä½¿ç”¨Timer2åšæ³¢ç‰¹çŽ‡, å…¶å®ƒå€¼: ä½¿ç”¨Timer1åšæ³¢ç‰¹çŽ‡.
+void PrintString1(u8 *); //å‘é€æ•°æ®åˆ°å•ç‰‡æœºä¸²
 //========================================================================
-// º¯Êý: void PrintString1(u8 *puts)
-// ÃèÊö: ´®¿Ú1·¢ËÍ×Ö·û´®º¯Êý¡£
-// ²ÎÊý: puts:  ×Ö·û´®Ö¸Õë.
-// ·µ»Ø: none.
-// °æ±¾: VER1.0
-// ÈÕÆÚ: 2014-11-28
-// ±¸×¢: 
+// å‡½æ•°: void PrintString1(u8 *puts)
+// æè¿°: ä¸²å£1å‘é€å­—ç¬¦ä¸²å‡½æ•°ã€‚
+// å‚æ•°: puts:  å­—ç¬¦ä¸²æŒ‡é’ˆ.
+// è¿”å›ž: none.
+// ç‰ˆæœ¬: VER1.0
+// æ—¥æœŸ: 2014-11-28
+// å¤‡æ³¨:
 //========================================================================
-void PrintString1(u8 *puts) //·¢ËÍÒ»¸ö×Ö·û´®
+void PrintString1(u8 *puts) //å‘é€ä¸€ä¸ªå­—ç¬¦ä¸²
 {
-    for (; *puts != 0;  puts++)     //Óöµ½Í£Ö¹·û0½áÊø
+    for (; *puts != '\0'; puts++) //é‡åˆ°åœæ­¢ç¬¦0ç»“æŸ
     {
         SBUF = *puts;
         B_TX1_Busy = 1;
-        while(B_TX1_Busy);
+        while (B_TX1_Busy);
     }
 }
 //========================================================================
-// º¯Êý: void   UART1_config(u8 brt)
-// ÃèÊö: UART1³õÊ¼»¯º¯Êý¡£
-// ²ÎÊý: brt: Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
-// ·µ»Ø: none.
-// °æ±¾: VER1.0
-// ÈÕÆÚ: 2014-11-28
-// ±¸×¢: 
+// å‡½æ•°: void   UART1_config(u8 brt)
+// æè¿°: UART1åˆå§‹åŒ–å‡½æ•°ã€‚
+// å‚æ•°: brt: é€‰æ‹©æ³¢ç‰¹çŽ‡, 2: ä½¿ç”¨Timer2åšæ³¢ç‰¹çŽ‡, å…¶å®ƒå€¼: ä½¿ç”¨Timer1åšæ³¢ç‰¹çŽ‡.
+// è¿”å›ž: none.
+// ç‰ˆæœ¬: VER1.0
+// æ—¥æœŸ: 2014-11-28
+// å¤‡æ³¨:
 //========================================================================
-void    UART1_config(u8 brt)    // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
+void UART1_config() // é€‰æ‹©æ³¢ç‰¹çŽ‡, 2: ä½¿ç”¨Timer2åšæ³¢ç‰¹çŽ‡, å…¶å®ƒå€¼: ä½¿ç”¨Timer1åšæ³¢ç‰¹çŽ‡.
 {
-    /*********** ²¨ÌØÂÊÊ¹ÓÃ¶¨Ê±Æ÷1 *****************/
+    /*********** æ³¢ç‰¹çŽ‡ä½¿ç”¨å®šæ—¶å™¨1 *****************/
     //115200bps@11.0592MHz
-    SCON = 0x50;		//8Î»Êý¾Ý,¿É±ä²¨ÌØÂÊ
-	AUXR |= 0x40;		//¶¨Ê±Æ÷1Ê±ÖÓÎªFosc,¼´1T
-	AUXR &= 0xFE;		//´®¿Ú1Ñ¡Ôñ¶¨Ê±Æ÷1Îª²¨ÌØÂÊ·¢ÉúÆ÷
-	TMOD &= 0x0F;		//Éè¶¨¶¨Ê±Æ÷1Îª16Î»×Ô¶¯ÖØ×°·½Ê½
-	TL1 = 0xE8;		//Éè¶¨¶¨Ê±³õÖµ
-	TH1 = 0xFF;		//Éè¶¨¶¨Ê±³õÖµ
-	ET1 = 0;		//½ûÖ¹¶¨Ê±Æ÷1ÖÐ¶Ï
-	TR1 = 1;		//Æô¶¯¶¨Ê±Æ÷1
+    SCON = 0x50;  //8ä½æ•°æ®,å¯å˜æ³¢ç‰¹çŽ‡
+    AUXR |= 0x40; //å®šæ—¶å™¨1æ—¶é’Ÿä¸ºFosc,å³1T
+    AUXR &= 0xFE; //ä¸²å£1é€‰æ‹©å®šæ—¶å™¨1ä¸ºæ³¢ç‰¹çŽ‡å‘ç”Ÿå™¨
+    TMOD &= 0x0F; //è®¾å®šå®šæ—¶å™¨1ä¸º16ä½è‡ªåŠ¨é‡è£…æ–¹å¼
+    TL1 = 0xE8;   //è®¾å®šå®šæ—¶åˆå€¼
+    TH1 = 0xFF;   //è®¾å®šå®šæ—¶åˆå€¼
+    ET1 = 0;      //ç¦æ­¢å®šæ—¶å™¨1ä¸­æ–­
+    TR1 = 1;      //å¯åŠ¨å®šæ—¶å™¨1
     /*************************************************/
-//  PS  = 1;    //¸ßÓÅÏÈ¼¶ÖÐ¶Ï
-    ES  = 1;    //ÔÊÐíÖÐ¶Ï
-    REN = 1;    //ÔÊÐí½ÓÊÕ
+    //  PS  = 1;    //é«˜ä¼˜å…ˆçº§ä¸­æ–­
+    ES = 1;  //å…è®¸ä¸­æ–­
+    REN = 1; //å…è®¸æŽ¥æ”¶
     P_SW1 &= 0x3f;
-    P_SW1 |= 0x80;      //UART1 switch to, 0x00: P3.0 P3.1, 0x40: P3.6 P3.7, 0x80: P1.6 P1.7 (±ØÐëÊ¹ÓÃÄÚ²¿Ê±ÖÓ)
-//  PCON2 |=  (1<<4);   //ÄÚ²¿¶ÌÂ·RXDÓëTXD, ×öÖÐ¼Ì, ENABLE,DISABLE
+    P_SW1 |= 0x80; //UART1 switch to, 0x00: P3.0 P3.1, 0x40: P3.6 P3.7, 0x80: P1.6 P1.7 (å¿…é¡»ä½¿ç”¨å†…éƒ¨æ—¶é’Ÿ)
+                   //  PCON2 |=  (1<<4);   //å†…éƒ¨çŸ­è·¯RXDä¸ŽTXD, åšä¸­ç»§, ENABLE,DISABLE
 
     B_TX1_Busy = 0;
     TX1_Cnt = 0;
     RX1_Cnt = 0;
 }
 
-
 //========================================================================
-// º¯Êý: void UART1_int (void) interrupt UART1_VECTOR
-// ÃèÊö: UART1ÖÐ¶Ïº¯Êý¡£
-// ²ÎÊý: nine.
-// ·µ»Ø: none.
-// ±¸×¢: 
+// å‡½æ•°: void UART1_int (void) interrupt UART1_VECTOR
+// æè¿°: UART1ä¸­æ–­å‡½æ•°ã€‚
+// å‚æ•°: nine.
+// è¿”å›ž: none.
+// å¤‡æ³¨:
 //========================================================================
-void UART1_int (void) interrupt 4
+void UART1_int(void) interrupt 4
 {
-    if(RI)
+    if (RI)
     {
         RI = 0;
         RX1_Buffer[RX1_Cnt] = SBUF;
-        if(++RX1_Cnt >= UART1_BUF_LENGTH)   RX1_Cnt = 0;    //·ÀÒç³ö
+        if (RX1_Buffer[RX1_Cnt] == '\n'){
+            RX1_Buffer[RX1_Cnt] = '\0';
+            RX1_Cnt = 0;
+        }
+        else if(++RX1_Cnt >= UART1_BUF_LENGTH){
+            RX1_Cnt = 0;
+        }
     }
 
-    if(TI)
+    if (TI)
     {
         TI = 0;
         B_TX1_Busy = 0;
     }
 }
 //========================================================================
-// º¯Êý: void  delay_ms(u8 ms)
-// ÃèÊö: ÑÓÊ±º¯Êý¡£
-// ²ÎÊý: ms,ÒªÑÓÊ±µÄmsÊý, ÕâÀïÖ»Ö§³Ö1~255ms. ×Ô¶¯ÊÊÓ¦Ö÷Ê±ÖÓ.
-// ·µ»Ø: none.
-// ±¸×¢: 
+// å‡½æ•°: void  delay_ms(u8 ms)
+// æè¿°: å»¶æ—¶å‡½æ•°ã€‚
+// å‚æ•°: ms,è¦å»¶æ—¶çš„msæ•°, è¿™é‡Œåªæ”¯æŒ1~65532ms. è‡ªåŠ¨é€‚åº”ä¸»æ—¶é’Ÿ.
+// è¿”å›ž: none.
+// å¤‡æ³¨:
 //========================================================================
-void  delay_ms(u8 ms)
+void delay_ms(u16 ms)
 {
-     u16 i;
-     do{
-          i = MAIN_Fosc / 13000;
-          while(--i)    ;   //14T per loop
-     }while(--ms);
+    u16 i;
+    do
+    {
+        i = MAIN_Fosc / 13000;
+        while (--i)
+            ; //14T per loop
+    } while (--ms);
 }
-#endif
+
+int StringLen(u8* String){
+    int i;
+    for(i = 0;*(String+i)!='\0';i++);
+    return i;
+}
 //=========================================================================
-//º¯Êý£ºbool BuffCMP(u8* cmp)
-//²ÎÊý£ºÓÃÀ´±È¶Ô»º³åÇøµÄ×Ö·û´®cmp
-//·µ»Ø£º²¼¶ûÖµ
-bit BuffCMP(u8* cmp){
+//å‡½æ•°ï¼šbool BuffCMP(u8* cmp)
+//å‚æ•°ï¼šæ¯”å¯¹ç¼“å†²åŒºçš„å­—ç¬¦ä¸²cmp
+//è¿”å›žï¼šå¸ƒå°”å€¼
+bit BuffCMP(u8* cmp)
+{
     u8 i;
-    for(i = 0;i<32 && *cmp!=0;i++,cmp++){
-        if(TX1_Cnt == RX1_Cnt || *cmp != RX1_Buffer[TX1_Cnt]){
-            TX1_Cnt = RX1_Cnt;
+    strncpy(RX1_Buffer_Temp,RX1_Buffer,32);
+    for (i = 0; *cmp != '\0' ; i++, cmp++)
+    {
+        if(*cmp != RX1_Buffer_Temp[i]){
             return 0;
         }
-        if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
+    }
+    //æ¸…é™¤æŽ¥æ”¶åŒºç¼“å­˜
+    for(i = 0;i<32;i++){
+        RX1_Buffer[i]='\0';
     }
     return 1;
 }
 //===============================
-bit ATConnect(){
-    PrintString1("AT\r\n");
+bit ATConnect()
+{
+    do{
+        PrintString1("AT\r\n");
+        delay_ms(500);
+    }
+    while(!BuffCMP("OK"));
     return 1;
 }
 //==============================
-bit ATMode(u8 mode){
-    PrintString1("AT+CWMODE=1\r\n");
+bit ATMode()
+{
+    do{
+        PrintString1("AT+CWMODE_CUR=1\r\n");
+        delay_ms(500);
+    }
+    while(!BuffCMP("OK"));
     return 1;
 }
 //===============================
-bit ATWifi(u8* name,u8* password){
-    PrintString1("AT+CWJAP=\"lxx\",\"liuxiao123\"\r\n");
+bit ATWifi(u8* username,u8* password)
+{
+    u8 idata temp[60];
+    sprintf(temp,"AT+CWJAP=\"%s\",\"%s\"\r\n",username,password);
+    do{
+        PrintString1(temp);
+        delay_ms(5000);
+    }
+    while(!BuffCMP("OK"));
     return 1;
 }
+
+//è¿žæŽ¥TCPæœåŠ¡å™¨
+bit TCPConnect(u8* address,u8* port)
+{
+    u8 idata temp[50];
+    sprintf(temp,"AT+CIPSTART=\"TCP\",\"%s\",%s\r\n",address,port);
+    do{
+        PrintString1(temp);
+        delay_ms(2000);
+    }
+    while(!BuffCMP("OK"));
+    return 1;
+}
+
+//å‘é€ä¸€ä¸ªå­—ç¬¦ä¸²
+bit TCPSend(u8* message){
+    int len;
+    u8 idata temp[24];
+    len = StringLen(message);
+    sprintf(temp,"AT+CIPSENDEX=%d\r\n\0",len);
+    do{
+        PrintString1(temp);
+        delay_ms(1000);
+    }
+    while(!BuffCMP(">"));
+    do{
+        PrintString1(message);
+        delay_ms(3000);
+    }
+    while(!BuffCMP("SEND OK"));
+    return 1;
+}
+
+
+#endif

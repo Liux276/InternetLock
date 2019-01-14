@@ -1,103 +1,39 @@
-/*************  ¹¦ÄÜËµÃ÷    **************
-
-Ë«´®¿ÚÈ«Ë«¹¤ÖÐ¶Ï·½Ê½ÊÕ·¢Í¨Ñ¶³ÌÐò¡£
-
-Í¨¹ýPCÏòMCU·¢ËÍÊý¾Ý, MCUÊÕµ½ºóÍ¨¹ý´®¿Ú°ÑÊÕµ½µÄÊý¾ÝÔ­Ñù·µ»Ø.
-
-******************************************/
 #include "STC_NET.h"
 
-//========================================================================
-// º¯Êý: void main(void)
-// ÃèÊö: Ö÷º¯Êý¡£
-// ²ÎÊý: none.
-// ·µ»Ø: none.
-// °æ±¾: VER1.0
-// ÈÕÆÚ: 2014-11-28
-// ±¸×¢: 
-//========================================================================
 void main(void)
 {
-    P0M1 = 0;   P0M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P1M1 = 0;   P1M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P2M1 = 0;   P2M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P3M1 = 0;   P3M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P4M1 = 0;   P4M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P5M1 = 0;   P5M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P6M1 = 0;   P6M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
-    P7M1 = 0;   P7M0 = 0;   //ÉèÖÃÎª×¼Ë«Ïò¿Ú
+    P0M1 = 0;
+    P0M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P1M1 = 0;
+    P1M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P2M1 = 0;
+    P2M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P3M1 = 0;
+    P3M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P4M1 = 0;
+    P4M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P5M1 = 0;
+    P5M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P6M1 = 0;
+    P6M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
+    P7M1 = 0;
+    P7M0 = 0; //è®¾ç½®ä¸ºå‡†åŒå‘å£
 
-    UART1_config();    // Ñ¡Ôñ²¨ÌØÂÊ, 2: Ê¹ÓÃTimer2×ö²¨ÌØÂÊ, ÆäËüÖµ: Ê¹ÓÃTimer1×ö²¨ÌØÂÊ.
-    EA = 1; //ÔÊÐí×ÜÖÐ¶Ï
+    UART1_config(); // é€‰æ‹©æ³¢ç‰¹çŽ‡
+    EA = 1;         //å…è®¸æ€»ä¸­æ–­
     P16 = 1;
     P47 = 1;
     P46 = 1;
-    // while(1){
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-	// 	delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-	// 	delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-	// 	delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     PrintString1(esp_at);
-    // }
-    // while(!BuffCMP("OK")){
-    //     PrintString1("AT\r\n");  //SUART1·¢ËÍÎÕÊÖÁ¬½ÓÖ¸Áî£¬·µ»Ø"OK"
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    //     delay_ms(250);
-    // }
-    // P16 = 0;
-    // while(!BuffCMP("OK")&&!BuffCMP("no change")){
-    //     PrintString1("AT+CWMODE=1\r\n"); //ÉèÖÃESP8266µÄ¹¤×÷Ä£Ê½1 Station£¬·µ»Ø"OK"»òÕß"no change"
-    //     delay_ms(5000);
-    // }
-    // P47 = 0;
-    // while(!BuffCMP("OK")){
-    //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
-    //     delay_ms(7000);
-    // }
-    // P46 = 0;
-    // while(1){
-    //     P47 = 1;
-    //     PrintString1("AT+CWMODE=1\r\n"); //ÉèÖÃESP8266µÄ¹¤×÷Ä£Ê½1 Station£¬·µ»Ø"OK"»òÕß"no change"
-    //     if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
-    //         P47 = 0;
-    //         break;
-    //     }
-    // }
-    // while(1){
-    //     P46 = 0;
-    //     PrintString1("AT+CWJAP=\"ILX\",\"liuxiao123\"\r\n");
-    //     if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
-    //     delay_ms(1000);
-    //     if(RX1_Buffer[RX1_Cnt-1]=="OK" || RX1_Buffer[RX1_Cnt-1]=="no change"){
-    //         P46 = 0;
-    //         break;
-    //     } 
-    //     P46 = 1;
-    // }
-   
-
-    // while (1)
-    // {
-    //     if((TX1_Cnt != RX1_Cnt) && (!B_TX1_Busy))   //ÊÕµ½Êý¾Ý, ·¢ËÍ¿ÕÏÐ
-    //     {
-    //         SBUF = RX1_Buffer[TX1_Cnt];     //°ÑÊÕµ½µÄÊý¾ÝÔ¶Ñù·µ»Ø
-    //         B_TX1_Busy = 1;
-    //         if(++TX1_Cnt >= UART1_BUF_LENGTH)   TX1_Cnt = 0;
-    //     }
-    // }
+    delay_ms(500);
+    ATConnect();
+    ATMode();
+    ATWifi("test","test123456");
+    TCPConnect("172.18.32.6","3333");
+    TCPSend("hello world!");
+    while(1){
+        delay_ms(500);
+        if(BuffCMP("+IPD,4:http")){
+            P46 = 0;
+        }
+    }
 }
