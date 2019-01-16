@@ -1,8 +1,9 @@
-#ifndef __STC_NET_H__
-#define __STC_NET_H__
-#include "Common.h"
-void UART1_config();     // 选择波特率, 2: 使用Timer2做波特率, 其它值: 使用Timer1做波特率.
-void PrintString1(u8 *); //发送数据到单片机串
+#include "STC_NET.h"
+#define UART1_BUF_LENGTH 32
+u8 RX1_Cnt;                            //接收计数
+bit B_TX1_Busy;                        //发送忙标志
+u8 idata RX1_Buffer[UART1_BUF_LENGTH]; //接收缓冲
+u8 RX1_Buffer_Temp[UART1_BUF_LENGTH]; //接收缓冲的临时变量
 //========================================================================
 // 函数: void PrintString1(u8 *puts)
 // 描述: 串口1发送字符串函数。
@@ -22,15 +23,15 @@ void PrintString1(u8 *puts) //发送一个字符串
     }
 }
 //========================================================================
-// 函数: void   UART1_config(u8 brt)
+// 函数: void   UART1_config()
 // 描述: UART1初始化函数。
-// 参数: brt: 选择波特率, 2: 使用Timer2做波特率, 其它值: 使用Timer1做波特率.
+// 参数: void
 // 返回: none.
 // 版本: VER1.0
 // 日期: 2014-11-28
 // 备注:
 //========================================================================
-void UART1_config() // 选择波特率, 2: 使用Timer2做波特率, 其它值: 使用Timer1做波特率.
+void UART1_config() // 选择波特率
 {
     /*********** 波特率使用定时器1 *****************/
     //115200bps@11.0592MHz
@@ -51,10 +52,8 @@ void UART1_config() // 选择波特率, 2: 使用Timer2做波特率, 其它值: 
                    //  PCON2 |=  (1<<4);   //内部短路RXD与TXD, 做中继, ENABLE,DISABLE
 
     B_TX1_Busy = 0;
-    TX1_Cnt = 0;
     RX1_Cnt = 0;
 }
-
 //========================================================================
 // 函数: void UART1_int (void) interrupt UART1_VECTOR
 // 描述: UART1中断函数。
@@ -83,8 +82,9 @@ void UART1_int(void) interrupt 4
         B_TX1_Busy = 0;
     }
 }
+
 //========================================================================
-// 函数: void  delay_ms(u8 ms)
+// 函数: void  delay_ms(u16 ms)
 // 描述: 延时函数。
 // 参数: ms,要延时的ms数, 这里只支持1~65532ms. 自动适应主时钟.
 // 返回: none.
@@ -126,7 +126,7 @@ bit BuffCMP(u8* cmp)
     }
     return 1;
 }
-//===============================
+
 bit ATConnect()
 {
     do{
@@ -136,7 +136,7 @@ bit ATConnect()
     while(!BuffCMP("OK"));
     return 1;
 }
-//==============================
+
 bit ATMode()
 {
     do{
@@ -146,10 +146,10 @@ bit ATMode()
     while(!BuffCMP("OK"));
     return 1;
 }
-//===============================
+
 bit ATWifi(u8* username,u8* password)
 {
-    u8 idata temp[60];
+    u8 xdata temp[60];
     sprintf(temp,"AT+CWJAP=\"%s\",\"%s\"\r\n",username,password);
     do{
         PrintString1(temp);
@@ -162,7 +162,7 @@ bit ATWifi(u8* username,u8* password)
 //连接TCP服务器
 bit TCPConnect(u8* address,u8* port)
 {
-    u8 idata temp[50];
+    u8 xdata temp[50];
     sprintf(temp,"AT+CIPSTART=\"TCP\",\"%s\",%s\r\n",address,port);
     do{
         PrintString1(temp);
@@ -175,21 +175,18 @@ bit TCPConnect(u8* address,u8* port)
 //发送一个字符串
 bit TCPSend(u8* message){
     int len;
-    u8 idata temp[24];
+    u8 xdata temp[24];
     len = StringLen(message);
     sprintf(temp,"AT+CIPSENDEX=%d\r\n\0",len);
+    PrintString1(temp);
     do{
-        PrintString1(temp);
-        delay_ms(1000);
+        delay_ms(50);
     }
     while(!BuffCMP(">"));
+    PrintString1(message);
     do{
-        PrintString1(message);
-        delay_ms(3000);
+        delay_ms(50);
     }
     while(!BuffCMP("SEND OK"));
     return 1;
 }
-
-
-#endif
