@@ -35,7 +35,7 @@ u8	KeyCode;	//给用户使用的键码
 u8 IO_KeyState, IO_KeyState1, IO_KeyHoldCnt;	//行列键盘变量
 
 u8 count;		 //输入密码的个数
-u8	input[6];	//存储输入的密码变量
+u8 data input[6];	//存储输入的密码变量
 u8 inputcount = 0; //输入密码错误次数 范围 0~3，每3次进入倒计时，并置 0
 u8 time = 0;	   //进入倒计时的次数，用于每次错误递增倒计时的时间
 u8 display;  //切换显示密码、实时时间 
@@ -115,7 +115,6 @@ void main(void)
 		if(B_1ms)	//1ms到
 		{
 			B_1ms = 0;
-			DisplayScan();	//1ms扫描显示一位
 			if(++temperatureCount >= 30000){ //30s更新一次温度
 				temperatureCount = 0;
 				SendTemperature(get_temperature());
@@ -290,12 +289,11 @@ void count_down()//倒计时
 	count = 0;
 	time++;
 	inputcount *= time;
-	input[0] = inputcount;// 使无关位置变暗 
-	input[1] = 1;
-	input[2] = 2;
+	input[0] = 10;// 使无关位置变暗 
+	input[1] = 10;
+	input[2] = 10;
 	inputcount++;
 	msecond = 0;
-	DisplayPassword(input, count);
 	while(1)
 	{
 		delay_ms(1);	//延时1ms
@@ -306,10 +304,9 @@ void count_down()//倒计时
 			input[3] = inputcount / 100;
 			input[4] = (inputcount % 100) / 10;
 			input[5] = inputcount % 10;
+			DisplayPassword(input, count);
+			if(inputcount  == 0) break;
 		}
-		DisplayPassword(input, count);
-		if(inputcount  == 0) break;
-		
 	}
 	for (i = 0; i < 6; ++i)
 	{
@@ -364,9 +361,9 @@ void validate()
 	}
 	if(inputcount == 3)//三次错误
 	{
-		Alarm("Wrong password for three times\0");//报警
-		//倒计时 
+		//倒计时
 		count_down();
+		Alarm("Wrong password for three times\0");//报警
 	}
 }
 
@@ -376,6 +373,7 @@ void validate()
 void timer0 (void) interrupt TIMER0_VECTOR
 {
 	B_1ms = 1;		//1ms标志
+	DisplayScan();	//1ms扫描显示一位
 }
 
 

@@ -29,7 +29,7 @@ type warningRecord struct {
 	Content string `json:"content"` //报警原因
 }
 
-var lockState int
+var lockState = -1
 var records []record
 var warningRecords []warningRecord
 var onlineLock = make(map[string]*net.Conn)
@@ -54,13 +54,15 @@ func main() {
 	app.Get("/api/LockState", func(ctx iris.Context) {
 		var msg respData
 		msg.Status = "200"
-		log.Println("[门锁状态]", lockState)
-		if lockState == 0 {
-			msg.Msg = "门锁状态正常"
+		log.Println("[电子锁状态]", lockState)
+		if lockState == -1 {
+			msg.Msg = "电子锁未连接服务器"
+		} else if lockState == 0 {
+			msg.Msg = "电子锁关闭，状态正常"
 		} else if lockState == 1 {
-			msg.Msg = "门锁开启"
+			msg.Msg = "电子锁开启"
 		} else {
-			msg.Msg = "门锁状态异常，超时未关闭，请检查门锁"
+			msg.Msg = "电子锁状态异常，请检查电子锁"
 		}
 		temp := strings.Split(temperature, "")
 		msg.Msg += "\n当前气温：" + temp[0] + temp[1] + "." + temp[2]
@@ -136,10 +138,11 @@ func newTCP() {
 
 /*
 单片机TCP消息格式：
-0. 0000-[门锁名称] 门锁连接FTP
-1. 0001-[xx] 门锁状态
+0. 0000-[电子锁名称] 电子锁连接FTP
+1. 0001-[xx] 电子锁状态
 2. 0002-[xx] 温度信息
 3. 0003-[xx] 异常告警
+4. 0004-[xx] 电子锁开锁成功
 */
 
 func handleConn(conn net.Conn) {
@@ -157,7 +160,9 @@ func handleConn(conn net.Conn) {
 	}
 	log.Println("[LockName]", lockName)
 	onlineLock[lockName] = &conn
+	lockState = 0
 	defer delete(onlineLock, lockName)
+	defer func() { lockState = -1 }()
 	for {
 		inputString, err := readInput(conn)
 		if err != nil {
